@@ -20,4 +20,7 @@ Code First Mainly useful for **Domain Driven Design**
 5. Seed Default/Test Data into the Database 
 6. finally Launch the Application
 
+## Database Initialization
+
+![Database initialization](http://www.entityframeworktutorial.net/images/codefirst/database-init-fg1.PNG)
 
