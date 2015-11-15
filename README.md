@@ -5,6 +5,8 @@ entity framework is a great tool for doing Database manipulations of your Applic
 2. Model First
 3. Database First
 
+![workflow of EF](https://i-msdn.sec.s-msft.com/dynimg/IC613437.png)
+
 #Code First Approach
 Code First Mainly useful for **Domain Driven Design** 
 
