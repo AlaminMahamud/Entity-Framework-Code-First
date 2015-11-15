@@ -24,3 +24,65 @@ Code First Mainly useful for **Domain Driven Design**
 
 ![Database initialization](http://www.entityframeworktutorial.net/images/codefirst/database-init-fg1.PNG)
 
+base constructor of the context class can have the following parameters
+* No Parameter
+* Database Name
+* Connection String Name
+
+
+#### No Paramter
+if you donot specify the above figure base constructor of the context class then it creates a database in your Local SQLExpress Server with a name that matches your `{Namespace}.{Context Class Name}`
+
+For Example Code First will create a database named `SchoolDataLayer.Context` for the following context class
+
+`
+namespace SchoolDataLayer
+{
+    public class Context : DbContext
+    {
+      public Context():base(){}
+    }
+}
+`
+
+#### Database Name
+You can also specify the database name as a parameter in  a base constructor of the context class. If you specify a database name parameter, then Code First creates a database with the name you specified in the base constructor in the local SQLExpress database Server.
+
+For Example Code FIrst will create a database Named MySchoolDB for the following Context Class
+`
+namespace SchoolDataLayer
+{
+  public class Context:DbContext
+  {
+    public Context():base("MySchoolDB"){}
+  }
+}
+`
+
+#### Connection String Name
+you can also define connection string in app.config or web.config and specify connection string name starting with the base constructor of the `context class`  
+
+Consider the following example where we pass `name = SchoolDBConnectionString` parameter in the base constructor
+`
+namespace SchoolDataLayer
+{
+  public class Context: DbContext
+  {
+    public SchoolDBContext():base("name=SchooLDBConnectionString"){}
+  }
+}
+`
+
+#### App.Config
+`
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<configuration>
+  <connectionStrings>
+    <add name = "SchoolDBConnectionString"
+    coonnectionString = "Data Source=.; Initial Catalog = SchoolDB-ByConnectionString;Integrated Security = "true"
+    providerName = "System.Data.SqlClient"/>  
+  </connectionStrings>
+</configuration>
+`
+
+Thus Code-First use the `base constructor` parameter to initialize a database 
